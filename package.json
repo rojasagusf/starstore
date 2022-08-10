@@ -5,7 +5,8 @@
   "main": "./bin/init.js",
   "scripts": {
     "dev": "nodemon ./bin/init.js",
-    "test-lint": "eslint ."
+    "test-lint": "eslint .",
+    "test": "mocha --exit --recursive ./tests/**/*"
   },
   "keywords": [],
   "type": "commonjs",
