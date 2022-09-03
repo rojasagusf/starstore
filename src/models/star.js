@@ -15,9 +15,6 @@ const starSchema = new Schema({
     distance: {
         type: String
     },
-    location: {
-        type: String
-    },
     description: {
         type: String
     },
