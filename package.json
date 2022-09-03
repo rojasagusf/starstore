@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon ./bin/init.js",
     "test-lint": "eslint .",
-    "test": "mocha --exit --recursive ./tests/**/*"
+    "test": "nyc mocha --exit --recursive ./tests/**/*"
   },
   "keywords": [],
   "type": "commonjs",
@@ -28,6 +28,7 @@
     "mocha": "^10.0.0",
     "module-alias": "^2.2.2",
     "nodemon": "^2.0.19",
+    "nyc": "^15.1.0",
     "should": "^13.2.3",
     "supertest": "^6.2.4"
   },
@@ -35,6 +36,6 @@
     "@root": "./",
     "@routes": "./src/routes",
     "@models": "./src/models",
-    "@controllers": "./src/controllers"
+    "@middlewares": "./src/utils/middlewares"
   }
 }
