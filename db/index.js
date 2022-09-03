@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
-async function connectToDB() {
-    mongoose.connect(`mongodb://${process.env.MONGODB_HOST}:${process.env.MONGODB_PORT}/${process.env.MONGODB_DB}`, {useNewUrlParser: true});
+function connectToDB() {
+    return mongoose.connect(`mongodb://${process.env.MONGODB_HOST}:${process.env.MONGODB_PORT}/${process.env.MONGODB_DB}`, {useNewUrlParser: true});
 }
 
 function connectMongoose() {
