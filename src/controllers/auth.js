@@ -20,10 +20,16 @@ const signUp = async (req, res) => {
                 expiresIn: 86400
             });
 
-            res.status(200).json({token});
+            return res.header('auth-token', token).json({
+                error: null,
+                data: token,
+            });
         })
         .catch((error) => {
             console.log(error);
+            return res.status(500).json({
+                error
+            });
         });
 };
 
@@ -33,22 +39,32 @@ const signIn = (req, res) => {
         .then(async (userFound) => {
             if(!userFound) {
                 return res.status(400).json({
-                    message: 'User not found'
+                    error: 'User not found',
+                    data: null,
                 });
             }
             const matchPassword = await User.comparePassword(req.body.password, userFound.password);
             if(!matchPassword) {
-                return res.send('nope');
+                return res.status(400).json({
+                    error: 'Incorrect password',
+                    data: null,
+                });
             }
 
-            const token = jwt.sign({id: userFound._id}, process.env.JWT_SECRET, {
+            const token = jwt.sign({name: userFound.name, id: userFound._id}, process.env.JWT_SECRET, {
                 expiresIn: 86400
             });
 
-            res.status(200).json({token});
+            return res.header('auth-token', token).json({
+                error: null,
+                data: token,
+            });
         })
         .catch((error) => {
             console.log(error);
+            return res.status(500).json({
+                error
+            });
         });
 };
 

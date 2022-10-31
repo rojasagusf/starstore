@@ -3,13 +3,16 @@ const Star = require('@models/star');
 const getStars = (req, res) => {
     Star.find()
         .then((data) => {
-            res.status(200).json(data);
+            return res.status(200).json({
+                error: null,
+                data,
+            });
         })
         .catch((error) => {
-            res.status(500).json({
-                message: 'Error'
-            });
             console.log(error);
+            return res.status(500).json({
+                error
+            });
         });
 };
 
@@ -18,10 +21,16 @@ const getStarById = (req, res) => {
         _id: req.params.starId
     })
         .then((data) => {
-            res.status(200).json(data);
+            return res.status(200).json({
+                error: null,
+                data,
+            });
         })
         .catch((error) => {
             console.log(error);
+            return res.status(500).json({
+                error
+            });
         });
 };
 
@@ -38,10 +47,16 @@ const createStar = (req, res) => {
 
     newStar.save()
         .then((response) => {
-            res.status(200).send({response});
+            return res.status(200).json({
+                error: null,
+                data: response,
+            });
         })
         .catch((error) => {
             console.log(error);
+            return res.status(500).json({
+                error
+            });
         });
 };
 
@@ -59,10 +74,16 @@ const updateStar = (req, res) => {
         }} 
     )
         .then(() => {
-            res.status(200).send('Star Updated');
+            return res.status(200).json({
+                error: null,
+                data: 'Star Updated Successfully',
+            });
         })
         .catch((error) => {
             console.log(error);
+            return res.status(500).json({
+                error
+            });
         });
 };
 
@@ -71,10 +92,16 @@ const deleteStar = (req, res) => {
         _id: req.params.starId
     })
         .then(() => {
-            res.status(200).send('Star Deleted');
+            return res.status(200).json({
+                error: null,
+                data: 'Star Deleted Successfully',
+            });
         })
         .catch((error) => {
             console.log(error);
+            return res.status(500).json({
+                error
+            });
         });
 };
 
