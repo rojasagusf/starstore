@@ -28,26 +28,26 @@ describe('GET /stars', () => {
                     })
                 ])
                     .then(() => {
-                        return Promise.all([
-                            Star.create({
-                                _id: '00000000000000aabb000313',
-                                name: 'Aquarius Star',
-                                constellation: '00000000000000aabb000310',
-                                magnitude: 12,
-                                distance: 197,
-                                description: 'A star of aquarius',
-                                price: 4000
-                            }),
-                            Star.create({
-                                _id: '00000000000000aabb000314',
-                                name: 'Geminis Star',
-                                constellation: '00000000000000aabb000311',
-                                magnitude: 9,
-                                distance: 203,
-                                description: 'A star of geminis',
-                                price: 2000
-                            }),
-                        ]);
+                        Star.create({
+                            _id: '00000000000000aabb000313',
+                            name: 'Aquarius Star',
+                            constellation: '00000000000000aabb000310',
+                            magnitude: 12,
+                            distance: 197,
+                            description: 'A star of aquarius',
+                            price: 4000
+                        })
+                            .then(() => { 
+                                Star.create({
+                                    _id: '00000000000000aabb000314',
+                                    name: 'Geminis Star',
+                                    constellation: '00000000000000aabb000311',
+                                    magnitude: 9,
+                                    distance: 203,
+                                    description: 'A star of geminis',
+                                    price: 2000
+                                });
+                            });
                     });
             })
             .then(() => {
