@@ -42,13 +42,12 @@ describe('GET /users', () => {
             .get('/api/users')
             .expect(200)
             .then((response) => {
-                response.body.should.have.length(1);
-
-                response.body[0].name.should.be.equal('user');
-                response.body[0].lastName.should.be.equal('prueba');
-                response.body[0].email.should.be.equal('user@prueba.com');
-                response.body[0].password.should.be.equal('password');
-                response.body[0].phone.should.be.equal(112233445566);
+                response.body.data.should.have.length(1);
+                response.body.data[0].name.should.be.equal('user');
+                response.body.data[0].lastName.should.be.equal('prueba');
+                response.body.data[0].email.should.be.equal('user@prueba.com');
+                response.body.data[0].password.should.be.equal('password');
+                response.body.data[0].phone.should.be.equal(112233445566);
             });
     });
 });
