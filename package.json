@@ -1,7 +1,7 @@
 {
-  "name": "star-store-api",
+  "name": "xtar-store-api",
   "version": "0.0.1",
-  "description": "Api of star store",
+  "description": "Api of xtar store",
   "main": "./bin/init.js",
   "scripts": {
     "dev": "nodemon ./bin/init.js",
