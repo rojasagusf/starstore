@@ -4,6 +4,7 @@
   "description": "Api of xtar store",
   "main": "./bin/init.js",
   "scripts": {
+    "start": "node ./bin/init.js",
     "dev": "nodemon ./bin/init.js",
     "test-lint": "eslint .",
     "test": "nyc mocha --exit --recursive ./tests/**/*"
