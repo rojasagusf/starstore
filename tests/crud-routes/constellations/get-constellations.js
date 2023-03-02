@@ -43,13 +43,18 @@ describe('GET /api/constellations', () => {
             .get('/api/constellations')
             .expect(200)
             .then((response) => {
-                response.body.should.have.length(2);
+                response.body.data.should.have.length(2);
 
-                response.body[0].name.should.be.equal('Aquarius');
-                response.body[0].description.should.be.equal('Aquarius is a constellation');
-
-                response.body[1].name.should.be.equal('Geminis');
-                response.body[1].description.should.be.equal('Geminis is another constellation');
+                response.body.data.should.have.containDeep([
+                    {
+                        name: 'Aquarius',
+                        description: 'Aquarius is a constellation'
+                    },
+                    {
+                        name: 'Geminis',
+                        description: 'Geminis is another constellation'
+                    }
+                ]);
             });
     });
 });
