@@ -33,7 +33,7 @@ const signUp = async (req, res) => {
         });
 };
 
-const signIn = (req, res) => {
+const logIn = (req, res) => {
     const email = req.body.email.toLowerCase();
     User.findOne({email})
         .then(async (userFound) => {
@@ -70,5 +70,5 @@ const signIn = (req, res) => {
 
 module.exports = {
     signUp,
-    signIn
+    logIn
 };
