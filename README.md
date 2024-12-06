@@ -1,9 +1,6 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/rojasagusf/xtar-store-api">
-    <img src="images/logo-xtar.png" alt="Logo" width="80" height="80">
-  </a>
 
 <h3 align="center">Xtar Store API</h3>
 
